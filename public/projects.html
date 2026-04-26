@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="p-8">
+
+<h1 class="text-3xl font-bold mb-4">Projekte</h1>
+
+<div id="projectList" class="space-y-3">
+  <!-- Projekte werden hier angezeigt -->
+</div>
+
+<!-- 🔧 LOKALE LOGIK (optional, erstmal Dummy) -->
+<script type="module">
+
+// 🔧 Dummy-Daten (später Supabase)
+const projects = [
+  { title: "Sommerkonzert 2026", status: "geplant" },
+  { title: "Weihnachtskonzert", status: "in Vorbereitung" },
+  { title: "Workshop Chorarbeit", status: "abgeschlossen" }
+];
+
+const container = document.getElementById("projectList");
+
+projects.forEach(p => {
+  const el = document.createElement("div");
+  el.className = "p-4 bg-gray-100 rounded";
+
+  el.innerHTML = `
+    <div class="font-bold">${p.title}</div>
+    <div class="text-sm text-gray-600">${p.status}</div>
+  `;
+
+  container.appendChild(el);
+});
+
+</script>
+
+<!-- 🔥 HAUPTSYSTEM -->
+<script type="module" src="/js/main.js"></script>
+
+</body>
+</html>
