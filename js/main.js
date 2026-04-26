@@ -12,6 +12,7 @@ async function init() {
     return;
   }
 
+  // Login-Seite überspringen
   if (path.includes("login")) return;
 
   const role = await getRole();
@@ -120,7 +121,7 @@ async function init() {
   }
 
   // -------------------------
-  // 💳 SEPA
+  // 💳 SEPA (nur Zugriff prüfen!)
   // -------------------------
   if (path.includes("sepa")) {
 
@@ -130,10 +131,8 @@ async function init() {
       return;
     }
 
-    const sepa = document.getElementById("sepaContent");
-    if (sepa) {
-      sepa.innerHTML += `<!-- SEPA Inhalte -->`;
-    }
+    // ❗ KEINE Logik hier → alles in sepa-generator.js
+    console.log("SEPA Seite geladen");
   }
 }
 
