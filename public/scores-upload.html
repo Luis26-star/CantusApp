@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind Config -->
-  <head>
-  <meta charset="UTF-8">
-
-  <!-- 1️⃣ Tailwind Config (ZUERST!) -->
   <script>
     tailwind.config = {
       darkMode: 'media',
@@ -28,38 +23,26 @@
       }
     }
   </script>
-
-  <!-- 2️⃣ Tailwind Script (DAS ist Tailwind!) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <title>Noten</title>
 </head>
-</head>
 
-<body class="p-6 bg-gray-50">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 
-  <main class="max-w-xl mx-auto bg-white p-6 rounded shadow">
+<div id="nav"></div>
 
-    <h1 class="text-2xl font-bold mb-4">PDF hochladen</h1>
+<main class="max-w-4xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-4">Noten</h1>
+  <div id="files"></div>
 
-    <input
-      type="file"
-      id="pdf"
-      accept="application/pdf"
-      class="mb-4 block w-full"
-    />
+  <iframe id="pdf-viewer"
+    class="w-full mt-6 bg-white rounded shadow"
+    style="height:80vh;border:none;"></iframe>
+</main>
 
-    <button
-      id="uploadBtn"
-      class="px-4 py-2 bg-cantus-primary text-white rounded hover:opacity-90"
-    >
-      Hochladen
-    </button>
-
-    <p id="status" class="mt-4 text-sm text-gray-600"></p>
-
-  </main>
-
-  <script type="module" src="/js/upload.js"></script>
+<script type="module" src="/js/ui-scores.js"></script>
+<script type="module" src="/js/nav.js"></script>
 
 </body>
 </html>
