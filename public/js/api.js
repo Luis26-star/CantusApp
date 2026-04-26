@@ -1,4 +1,35 @@
 import { supabase } from "./supabase.js";
+
+/**
+ * PDF in Supabase Storage hochladen
+ */
+export async function uploadPdf(bucket, file) {
+  try {
+    if (!file) {
+      throw new Error("Keine Datei ausgewählt");
+    }
+
+    const fileName = `${Date.now()}-${file.name}`;
+
+    const { error } = await supabase.storage
+      .from(bucket)
+      .upload(fileName, file, {
+        contentType: "application/pdf"
+      });
+
+    if (error) {
+      console.error("Upload Fehler:", error);
+      return null;
+    }
+
+    return fileName;
+
+  } catch (err) {
+    console.error("Unexpected upload error:", err);
+    return null;
+  }
+}
+import { supabase } from "./supabase.js";
 import { getUser } from "./auth.js";
 
 /**
