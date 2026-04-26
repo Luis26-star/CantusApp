@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind Config (IMMER vor Tailwind!) -->
+  <!-- Tailwind Config -->
   <script>
     tailwind.config = {
       darkMode: 'media',
@@ -25,7 +25,6 @@
     }
   </script>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- PWA -->
@@ -37,15 +36,13 @@
 
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
-  <!-- NAV -->
   <div id="nav"></div>
 
-  <!-- CONTENT -->
   <main class="max-w-4xl mx-auto p-6">
-    <!-- 👉 HIER kommt dein Seiteninhalt rein -->
+    <!-- CONTENT -->
   </main>
 
-  <!-- NAV + CORE LOGIK -->
+  <!-- NAV -->
   <script type="module">
     import { getRole } from "/js/roles.js";
     import { logout } from "/js/auth.js";
@@ -54,11 +51,9 @@
       const res = await fetch("/partials/nav.html");
       document.getElementById("nav").innerHTML = await res.text();
 
-      // Logout Button
       document.getElementById("logoutBtn")
         ?.addEventListener("click", logout);
 
-      // Rolle anzeigen
       const role = await getRole();
       if (role) {
         const el = document.getElementById("role");
@@ -71,7 +66,7 @@
     initNav();
   </script>
 
-  <!-- PWA Service Worker -->
+  <!-- PWA -->
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("/service-worker.js");
