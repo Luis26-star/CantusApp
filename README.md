@@ -1,2 +1,0 @@
-# CantusApp
-Eine ChorApp
