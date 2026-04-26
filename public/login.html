@@ -1,51 +1,15 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>Login – CantusApp</title>
- <head>
-  <meta charset="UTF-8">
+<body class="flex items-center justify-center h-screen bg-gray-100">
 
-  <!-- 1️⃣ Tailwind Config (ZUERST!) -->
-  <script>
-    tailwind.config = {
-      darkMode: 'media',
-      theme: {
-        extend: {
-          colors: {
-            cantus: {
-              light: "#E6F2FF",
-              primary: "#1976D2",
-              dark: "#0D47A1",
-              accent: "#FFC107",
-              danger: "#D32F2F",
-              success: "#388E3C"
-            }
-          }
-        }
-      }
-    }
-  </script>
+<div class="bg-white p-8 rounded shadow w-full max-w-md">
+  <h1 class="text-2xl font-bold mb-6">Login</h1>
 
-  <!-- 2️⃣ Tailwind Script (DAS ist Tailwind!) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <input id="email" class="w-full p-3 border mb-4" placeholder="Email">
+  <input id="password" type="password" class="w-full p-3 border mb-4">
 
-</head>
-  <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2)"></script>
-  <script src="../js/supabase.js"></script>
-  <script src="../js/auth.js"></script>
-</head>
-<body class="bg-gray-100">
-  <div class="max-w-md mx-auto mt-20 p-8 bg-white rounded shadow">
-    <h1 class="text-2xl font-bold text-center mb-4">Mitglieder-Login</h1>
-    <input id="email" type="email"
-      class="w-full p-3 border rounded mb-4"
-      placeholder="email@example.com"/>
-    <button onclick="sendMagicLink()"
-      class="w-full p-3 bg-blue-600 text-white rounded">
-      Login-Link senden
-    </button>
-    <p id="status" class="text-center mt-3 text-gray-600"></p>
-  </div>
-</body>
-</html>
+  <button id="loginBtn"
+    class="w-full bg-cantus-primary text-white p-3 rounded">
+    Login
+  </button>
+</div>
+
+<script type="module" src="/js/login.js"></script>
