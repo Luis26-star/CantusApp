@@ -6,42 +6,32 @@
 
   <script>
     tailwind.config = {
-      darkMode: 'media',
-      theme: {
-        extend: {
-          colors: {
-            cantus: {
-              light: "#E6F2FF",
-              primary: "#1976D2",
-              dark: "#0D47A1",
-              accent: "#FFC107",
-              danger: "#D32F2F",
-              success: "#388E3C"
-            }
-          }
-        }
-      }
+      theme: { extend: { colors: { cantus: {
+        primary:"#1976D2"
+      }}}}
     }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <title>Noten</title>
+  <title>Upload</title>
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="bg-gray-50">
 
 <div id="nav"></div>
 
-<main class="max-w-4xl mx-auto p-6">
-  <h1 class="text-3xl font-bold mb-4">Noten</h1>
-  <div id="files"></div>
+<main class="max-w-xl mx-auto p-6 bg-white rounded shadow">
+  <h1 class="text-2xl font-bold mb-4">PDF Upload</h1>
 
-  <iframe id="pdf-viewer"
-    class="w-full mt-6 bg-white rounded shadow"
-    style="height:80vh;border:none;"></iframe>
+  <input type="file" id="pdf" class="mb-4">
+  <button id="uploadBtn" class="bg-cantus-primary text-white px-4 py-2 rounded">
+    Upload
+  </button>
+
+  <p id="status"></p>
 </main>
 
-<script type="module" src="/js/ui-scores.js"></script>
+<script type="module" src="/js/upload.js"></script>
 <script type="module" src="/js/nav.js"></script>
 
 </body>
