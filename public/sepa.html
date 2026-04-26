@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <script src="[cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/sepa-generator.js"></script>
+</head>
+<body class="p-6">
+  <h1 class="text-3xl font-bold mb-6">SEPA-Mandat</h1>
+  <form class="space-y-4 max-w-md">
+    <input id="iban" class="w-full p-2 border rounded" placeholder="IBAN"/>
+    <input id="bic" class="w-full p-2 border rounded" placeholder="BIC"/>
+    <button type="button"
+      onclick="save()"
+      class="w-full p-3 bg-blue-500 text-white rounded">
+      Mandat speichern
+    </button>
+  </form>
+<script>
+async function save() {
+  await updateProfile({
+    iban: iban.value,
+    bic: bic.value,
+    sepa_mandate_signed: true
+  });
+  await saveSepaMandate({
+    reference: "MAND-" + Date.now()
+  });
+  alert("SEPA-Mandat gespeichert!");
+}
+</script>
+</body>
+</html>
