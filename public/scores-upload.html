@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cantus: {
+              primary: "#1976D2",
+              success: "#388E3C",
+              danger: "#D32F2F"
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>PDF Upload</title>
+</head>
+
+<body class="p-6 bg-gray-50">
+
+  <main class="max-w-xl mx-auto bg-white p-6 rounded shadow">
+
+    <h1 class="text-2xl font-bold mb-4">PDF hochladen</h1>
+
+    <input
+      type="file"
+      id="pdf"
+      accept="application/pdf"
+      class="mb-4 block w-full"
+    />
+
+    <button
+      id="uploadBtn"
+      class="px-4 py-2 bg-cantus-primary text-white rounded hover:opacity-90"
+    >
+      Hochladen
+    </button>
+
+    <p id="status" class="mt-4 text-sm text-gray-600"></p>
+
+  </main>
+
+  <script type="module" src="/js/upload.js"></script>
+
+</body>
+</html>
