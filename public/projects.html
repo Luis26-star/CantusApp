@@ -2,7 +2,34 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <head>
+  <meta charset="UTF-8">
+
+  <!-- 1️⃣ Tailwind Config (ZUERST!) -->
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          colors: {
+            cantus: {
+              light: "#E6F2FF",
+              primary: "#1976D2",
+              dark: "#0D47A1",
+              accent: "#FFC107",
+              danger: "#D32F2F",
+              success: "#388E3C"
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- 2️⃣ Tailwind Script (DAS ist Tailwind!) -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
 </head>
 
 <body class="p-8">
