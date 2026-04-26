@@ -1,0 +1,32 @@
+CantusApp/
+│
+├── public/
+│   ├── index.html
+│   ├── login.html
+│   ├── profile.html
+│   ├── sepa.html
+│   ├── events.html
+│   ├── rehearsals.html
+│   ├── projects.html
+│   ├── scores.html
+│   ├── scores-upload.html
+│   ├── dashboard.html
+│   ├── partials/
+│   │     └── nav.html
+│
+├── js/
+│   ├── supabase.js
+│   ├── auth.js
+│   ├── api.js
+│   ├── sepa-generator.js
+│   ├── ui-projects.js
+│   ├── ui-scores.js
+│
+├── css/
+│   └── style.css
+│
+├── erd/
+│   ├── erd.mmd
+│   └── erd.png
+│
+└── README.md
