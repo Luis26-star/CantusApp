@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Login – CantusApp</title>
+  <script src="[cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2)"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth.js"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-md mx-auto mt-20 p-8 bg-white rounded shadow">
+    <h1 class="text-2xl font-bold text-center mb-4">Mitglieder-Login</h1>
+    <input id="email" type="email"
+      class="w-full p-3 border rounded mb-4"
+      placeholder="email@example.com"/>
+    <button onclick="sendMagicLink()"
+      class="w-full p-3 bg-blue-600 text-white rounded">
+      Login-Link senden
+    </button>
+    <p id="status" class="text-center mt-3 text-gray-600"></p>
+  </div>
+</body>
+</html>
