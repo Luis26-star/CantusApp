@@ -31,15 +31,10 @@ async function init() {
       document.getElementById("adminSection")?.classList.remove("hidden");
     }
 
-    // 🔧 CUSTOM: Dashboard Logik
-    // 👉 hier kannst du eigene Funktionen starten
-
-    // 🔧 CUSTOM HTML: Inhalte dynamisch einfügen
+    // 🔧 CUSTOM HTML
     const custom = document.getElementById("customDashboard");
     if (custom) {
-      custom.innerHTML += `
-        <!-- 👉 HIER kannst du später HTML erweitern -->
-      `;
+      custom.innerHTML += `<!-- eigener Code hier -->`;
     }
   }
 
@@ -54,14 +49,55 @@ async function init() {
       return;
     }
 
-    // 🔧 CUSTOM: Events laden
+    // 🔧 DUMMY EVENTS
+    const dummyEvents = [
+      { title: "Chorprobe", date: "10.05.2026" },
+      { title: "Generalprobe", date: "15.05.2026" },
+      { title: "Sommerkonzert", date: "01.06.2026" }
+    ];
 
-    // 🔧 CUSTOM HTML
-    const eventList = document.getElementById("eventList");
-    if (eventList) {
-      eventList.innerHTML += `
-        <!-- 👉 HIER kommen später Events rein -->
-      `;
+    const list = document.getElementById("eventList");
+
+    if (list) {
+      list.innerHTML = "";
+
+      dummyEvents.forEach(ev => {
+        list.innerHTML += `
+          <div class="p-4 mb-4 border rounded bg-gray-50 shadow">
+            <div class="text-xl font-bold">${ev.title}</div>
+            <div class="text-gray-600 mb-2">📅 ${ev.date}</div>
+
+            <button class="px-3 py-2 mr-2 bg-green-500 text-white rounded">
+              ✅ Ich komme
+            </button>
+
+            <button class="px-3 py-2 bg-red-500 text-white rounded">
+              ❌ Ich komme nicht
+            </button>
+          </div>
+        `;
+      });
+    }
+
+    // 🔧 FORM
+    const form = document.getElementById("eventForm");
+
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById("title").value;
+        const date = document.getElementById("date").value;
+
+        const regex = /^\d{2}\.\d{2}\.\d{4}$/;
+
+        if (!regex.test(date)) {
+          alert("Bitte Datum im Format TT.MM.JJJJ eingeben");
+          return;
+        }
+
+        alert(`Event gespeichert:\n${title} am ${date}`);
+      });
     }
   }
 
@@ -72,12 +108,9 @@ async function init() {
 
     document.getElementById("email")?.textContent = user.email;
 
-    // 🔧 CUSTOM HTML
     const profile = document.getElementById("profileData");
     if (profile) {
-      profile.innerHTML += `
-        <!-- 👉 HIER Profilfelder ergänzen -->
-      `;
+      profile.innerHTML += `<!-- Profil erweitern -->`;
     }
   }
 
@@ -92,12 +125,9 @@ async function init() {
       return;
     }
 
-    // 🔧 CUSTOM HTML
     const sepa = document.getElementById("sepaContent");
     if (sepa) {
-      sepa.innerHTML += `
-        <!-- 👉 HIER SEPA-Formulare einfügen -->
-      `;
+      sepa.innerHTML += `<!-- SEPA Inhalte -->`;
     }
   }
 
