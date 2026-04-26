@@ -4,54 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tailwind Config (optional falls du cantus nutzt) -->
-  <head>
-  <meta charset="UTF-8">
-
-  <!-- 1️⃣ Tailwind Config (ZUERST!) -->
   <script>
     tailwind.config = {
       darkMode: 'media',
-      theme: {
-        extend: {
-          colors: {
-            cantus: {
-              light: "#E6F2FF",
-              primary: "#1976D2",
-              dark: "#0D47A1",
-              accent: "#FFC107",
-              danger: "#D32F2F",
-              success: "#388E3C"
-            }
-          }
-        }
-      }
+      theme: { extend: { colors: { cantus: {
+        primary:"#1976D2", success:"#388E3C", danger:"#D32F2F"
+      }}}}
     }
   </script>
-
-  <!-- 2️⃣ Tailwind Script (DAS ist Tailwind!) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <title>Proben</title>
 </head>
-</head>
 
-<body class="p-6 bg-gray-50">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 
-  <!-- NAV -->
-  <div id="nav"></div>
+<div id="nav"></div>
 
-  <main class="max-w-3xl mx-auto">
+<main class="max-w-4xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6">Proben</h1>
+  <div id="rehearsals"></div>
+</main>
 
-    <h1 class="text-3xl font-bold mb-6">Proben</h1>
-
-    <div id="rehearsals" class="space-y-4">
-      <p class="text-gray-500">Lade Proben...</p>
-    </div>
-
-  </main>
-
-  <!-- EIN Einstiegspunkt -->
-  <script type="module" src="/js/rehearsals.js"></script>
+<script type="module" src="/js/rehearsals.js"></script>
+<script type="module" src="/js/nav.js"></script>
 
 </body>
 </html>
