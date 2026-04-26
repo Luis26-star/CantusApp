@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CantusApp</title>
+  <script src="[cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2)"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/auth.js"></script>
+</head>
+<body class="bg-gray-50">
+  <div class="max-w-2xl mx-auto mt-10 p-6 bg-white shadow rounded">
+    <h1 class="text-3xl font-bold text-center mb-6">CantusApp</h1>
+    <div class="space-y-4">
+      <a href="profile.html" class="block p-4 bg-blue-100 rounded hover:bg-blue-200">
+        Profil bearbeiten
+      </a>
+      <a href="sepa.html" class="block p-4 bg-teal-100 rounded hover:bg-teal-200">
+        SEPA-Mandat
+      </a>
+      <a href="events.html" class="block p-4 bg-yellow-100 rounded hover:bg-yellow-200">
+        Termine
+      </a>
+      <a href="rehearsals.html" class="block p-4 bg-purple-100 rounded hover:bg-purple-200">
+        Proben
+      </a>
+      <a href="scores.html" class="block p-4 bg-green-100 rounded hover:bg-green-200">
+        Noten (PDF Viewer)
+      </a>
+      <a href="projects.html" class="block p-4 bg-pink-100 rounded hover:bg-pink-200">
+        Projekte
+      </a>
+      <a href="dashboard.html" class="block p-4 bg-gray-200 rounded hover:bg-gray-300">
+        Vorstand-Dashboard
+      </a>
+      <button onclick="logout()" class="block w-full mt-8 p-3 bg-red-500 text-white rounded">
+        Logout
+      </button>
+    </div>
+  </div>
+</body>
+</html>
