@@ -1,85 +1,11 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <head>
-  <meta charset="UTF-8">
+<title>Dashboard</title>
 
-  <!-- 1️⃣ Tailwind Config (ZUERST!) -->
-  <script>
-    tailwind.config = {
-      darkMode: 'media',
-      theme: {
-        extend: {
-          colors: {
-            cantus: {
-              light: "#E6F2FF",
-              primary: "#1976D2",
-              dark: "#0D47A1",
-              accent: "#FFC107",
-              danger: "#D32F2F",
-              success: "#388E3C"
-            }
-          }
-        }
-      }
-    }
-  </script>
+<main class="max-w-4xl mx-auto p-6">
+  <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
 
-  <!-- 2️⃣ Tailwind Script (DAS ist Tailwind!) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-</head>
-</head>
-
-<body class="p-10">
-
-<h1 class="text-3xl font-bold mb-6">Vorstand – Dashboard</h1>
-
-<!-- 🔧 SEPA BUTTON -->
-<button id="sepaBtn" class="px-4 py-2 bg-blue-600 text-white rounded">
-  SEPA XML exportieren
-</button>
-
-<!-- 🔧 CUSTOM BEREICH -->
-<h2 class="text-xl font-semibold mt-8 mb-4">Projekte</h2>
-<div id="projects" class="space-y-2">
-  <!-- Projekte später -->
-</div>
-
-<!-- 🔥 MODULE SCRIPT -->
-<script type="module">
-
-import { generateSepaXML, downloadXML } from "/js/sepa-generator.js";
-
-// 👉 Button Logik
-document.getElementById("sepaBtn").onclick = () => {
-
-  // 🔧 Dummy Daten (später Supabase)
-  const mandateData = [
-    {
-      name: "Max Mustermann",
-      iban: "DE12345678901234567890",
-      bic: "GENODEF1XXX",
-      mandate_reference: "MANDAT-001",
-      signed_at: "2024-01-01T00:00:00"
-    }
-  ];
-
-  const xml = generateSepaXML(
-    mandateData,
-    "Mein Chor",
-    "DE99999999999999999999",
-    "GENODEF1XXX"
-  );
-
-  downloadXML(xml);
-};
-
-</script>
-
-<!-- 🔥 DEIN HAUPTSYSTEM -->
-<script type="module" src="/js/main.js"></script>
-
-</body>
-</html>
+  <div class="space-y-4">
+    <a href="/scores.html" class="block p-4 bg-white rounded shadow">🎵 Noten</a>
+    <a href="/rehearsals.html" class="block p-4 bg-white rounded shadow">📅 Proben</a>
+    <a href="/profile.html" class="block p-4 bg-white rounded shadow">👤 Profil</a>
+  </div>
+</main>
