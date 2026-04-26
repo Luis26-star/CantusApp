@@ -1,74 +1,15 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil</title>
 
-  <!-- Tailwind -->
- <head>
-  <meta charset="UTF-8">
+<main class="max-w-4xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-4">Profil</h1>
 
-  <!-- 1️⃣ Tailwind Config (ZUERST!) -->
-  <script>
-    tailwind.config = {
-      darkMode: 'media',
-      theme: {
-        extend: {
-          colors: {
-            cantus: {
-              light: "#E6F2FF",
-              primary: "#1976D2",
-              dark: "#0D47A1",
-              accent: "#FFC107",
-              danger: "#D32F2F",
-              success: "#388E3C"
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <div id="user-info" class="mb-6 bg-white p-4 rounded shadow"></div>
 
-  <!-- 2️⃣ Tailwind Script (DAS ist Tailwind!) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <div id="files"></div>
 
-</head>
+  <iframe id="pdf-viewer"
+    class="w-full mt-6 bg-white rounded shadow"
+    style="height:80vh;border:none;"></iframe>
+</main>
 
-  <title>Profil</title>
-</head>
-
-<body class="p-6 bg-gray-50">
-
-  <main class="max-w-4xl mx-auto">
-
-    <h1 class="text-3xl font-bold mb-6">Profil</h1>
-
-    <!-- USER INFO -->
-    <section id="user-info" class="mb-6 p-4 bg-white rounded shadow">
-      <p class="text-gray-500">Lade Benutzerdaten...</p>
-    </section>
-
-    <!-- SCORES -->
-    <section>
-      <h2 class="text-xl font-semibold mb-2">Deine Noten</h2>
-
-      <div id="files" class="bg-white rounded shadow divide-y">
-        <p class="p-4 text-gray-500">Lade Noten...</p>
-      </div>
-    </section>
-
-    <!-- PDF VIEWER -->
-    <iframe
-      id="pdf-viewer"
-      class="w-full mt-6 bg-white rounded shadow"
-      style="height:80vh;border:none;"
-      title="PDF Viewer"
-    ></iframe>
-
-  </main>
-
-  <!-- EINZIGER Einstiegspunkt -->
-  <script type="module" src="/js/profile.js"></script>
-
-</body>
-</html>
+<script type="module" src="/js/profile.js"></script>
