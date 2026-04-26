@@ -24,8 +24,8 @@ async function init() {
   // -------------------------
   if (path.includes("dashboard")) {
 
-    document.getElementById("userEmail")?.textContent = user.email;
-    document.getElementById("role")?.textContent = role;
+    document.getElementById("userEmail")?.textContent = user?.email || "";
+    document.getElementById("role")?.textContent = role || "";
 
     if (role === "board") {
       document.getElementById("adminSection")?.classList.remove("hidden");
@@ -60,20 +60,23 @@ async function init() {
       list.innerHTML = "";
 
       dummyEvents.forEach(ev => {
-        list.innerHTML += `
-          <div class="p-4 mb-4 border rounded bg-gray-50 shadow">
-            <div class="text-xl font-bold">${ev.title}</div>
-            <div class="text-gray-600 mb-2">📅 ${ev.date}</div>
+        const item = document.createElement("div");
+        item.className = "p-4 mb-4 border rounded bg-gray-50 shadow";
 
-            <button class="px-3 py-2 mr-2 bg-green-500 text-white rounded">
-              ✅ Ich komme
-            </button>
+        item.innerHTML = `
+          <div class="text-xl font-bold">${ev.title}</div>
+          <div class="text-gray-600 mb-2">📅 ${ev.date}</div>
 
-            <button class="px-3 py-2 bg-red-500 text-white rounded">
-              ❌ Ich komme nicht
-            </button>
-          </div>
+          <button class="px-3 py-2 mr-2 bg-green-500 text-white rounded">
+            ✅ Ich komme
+          </button>
+
+          <button class="px-3 py-2 bg-red-500 text-white rounded">
+            ❌ Ich komme nicht
+          </button>
         `;
+
+        list.appendChild(item);
       });
     }
 
@@ -83,10 +86,15 @@ async function init() {
       form.onsubmit = (e) => {
         e.preventDefault();
 
-        const title = document.getElementById("title").value;
-        const date = document.getElementById("date").value;
+        const title = document.getElementById("title")?.value.trim();
+        const date = document.getElementById("date")?.value.trim();
 
         const regex = /^\d{2}\.\d{2}\.\d{4}$/;
+
+        if (!title) {
+          alert("Bitte Titel eingeben");
+          return;
+        }
 
         if (!regex.test(date)) {
           alert("Bitte Datum im Format TT.MM.JJJJ eingeben");
@@ -103,7 +111,7 @@ async function init() {
   // -------------------------
   if (path.includes("profile")) {
 
-    document.getElementById("email")?.textContent = user.email;
+    document.getElementById("email")?.textContent = user?.email || "";
 
     const profile = document.getElementById("profileData");
     if (profile) {
