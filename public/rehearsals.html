@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind Config (optional falls du cantus nutzt) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cantus: {
+              success: "#388E3C",
+              danger: "#D32F2F"
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Proben</title>
+</head>
+
+<body class="p-6 bg-gray-50">
+
+  <!-- NAV -->
+  <div id="nav"></div>
+
+  <main class="max-w-3xl mx-auto">
+
+    <h1 class="text-3xl font-bold mb-6">Proben</h1>
+
+    <div id="rehearsals" class="space-y-4">
+      <p class="text-gray-500">Lade Proben...</p>
+    </div>
+
+  </main>
+
+  <!-- EIN Einstiegspunkt -->
+  <script type="module" src="/js/rehearsals.js"></script>
+
+</body>
+</html>
