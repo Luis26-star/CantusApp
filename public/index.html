@@ -6,12 +6,21 @@
 
   <script>
     tailwind.config = {
-      theme: { extend: { colors: { cantus: { primary:"#1976D2" }}}}
+      theme: {
+        extend: {
+          colors: {
+            cantus: {
+              primary: "#1976D2"
+            }
+          }
+        }
+      }
     }
   </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <title>Dashboard</title>
+  <title>CantusApp</title>
 </head>
 
 <body class="bg-gray-50">
@@ -19,16 +28,48 @@
 <div id="nav"></div>
 
 <main class="max-w-4xl mx-auto p-6">
-  <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
 
-  <div class="space-y-4">
-    <a href="/scores.html" class="block p-4 bg-white rounded shadow">Noten</a>
-    <a href="/rehearsals.html" class="block p-4 bg-white rounded shadow">Proben</a>
-    <a href="/profile.html" class="block p-4 bg-white rounded shadow">Profil</a>
+  <h1 class="text-3xl font-bold mb-6">🎼 CantusApp</h1>
+
+  <div id="content" class="space-y-4 hidden">
+
+    <a href="/scores.html" class="block p-4 bg-white rounded shadow">
+      📄 Noten
+    </a>
+
+    <a href="/rehearsals.html" class="block p-4 bg-white rounded shadow">
+      📅 Proben
+    </a>
+
+    <a href="/profile.html" class="block p-4 bg-white rounded shadow">
+      👤 Profil
+    </a>
+
   </div>
+
 </main>
 
-<script type="module" src="/js/nav.js"></script>
+<script type="module">
+import { supabase } from "/js/supabase.js";
+
+async function init() {
+  const { data } = await supabase.auth.getUser();
+
+  if (!data.user) {
+    window.location.href = "/login.html";
+    return;
+  }
+
+  // eingeloggt → Inhalt anzeigen
+  document.getElementById("content").classList.remove("hidden");
+
+  // Navigation laden
+  const res = await fetch("/partials/nav.html");
+  document.getElementById("nav").innerHTML = await res.text();
+}
+
+init();
+</script>
 
 </body>
 </html>
