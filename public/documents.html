@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cantus:{ primary:"#1976D2" }
+      }
+    }
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<title>Dokumente</title>
+</head>
+
+<body class="bg-gray-50">
+
+<div id="nav"></div>
+
+<main class="max-w-5xl mx-auto p-6">
+
+<h1 class="text-3xl font-bold mb-6">Dokumente</h1>
+
+<div class="grid md:grid-cols-3 gap-4">
+
+<button class="cat p-4 bg-white shadow" data-bucket="scores">Noten</button>
+<button class="cat p-4 bg-white shadow" data-bucket="contracts">Verträge</button>
+<button class="cat p-4 bg-white shadow" data-bucket="mandates">Mandate</button>
+
+</div>
+
+<div id="files" class="mt-6"></div>
+
+<iframe id="viewer" class="w-full mt-6 h-[70vh]"></iframe>
+
+</main>
+
+<script type="module" src="/js/documents.js"></script>
+<script type="module" src="/js/nav.js"></script>
+
+</body>
+</html>
