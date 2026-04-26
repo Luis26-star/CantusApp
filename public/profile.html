@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -9,20 +10,37 @@
   <title>Profil</title>
 </head>
 
-<body class="p-6">
+<body class="p-6 bg-gray-50">
 
-  <h1 class="text-3xl font-bold mb-4">Profil</h1>
+  <main class="max-w-4xl mx-auto">
 
-  <div id="user-info" class="mb-6"></div>
+    <h1 class="text-3xl font-bold mb-6">Profil</h1>
 
-  <h2 class="text-xl font-semibold mb-2">Deine Noten</h2>
-  <div id="files"></div>
+    <!-- USER INFO -->
+    <section id="user-info" class="mb-6 p-4 bg-white rounded shadow">
+      <p class="text-gray-500">Lade Benutzerdaten...</p>
+    </section>
 
-  <iframe id="pdf-viewer"
-    class="w-full mt-6"
-    style="height:80vh;border:none;"></iframe>
+    <!-- SCORES -->
+    <section>
+      <h2 class="text-xl font-semibold mb-2">Deine Noten</h2>
 
-  <!-- EIN Einstiegspunkt -->
+      <div id="files" class="bg-white rounded shadow divide-y">
+        <p class="p-4 text-gray-500">Lade Noten...</p>
+      </div>
+    </section>
+
+    <!-- PDF VIEWER -->
+    <iframe
+      id="pdf-viewer"
+      class="w-full mt-6 bg-white rounded shadow"
+      style="height:80vh;border:none;"
+      title="PDF Viewer"
+    ></iframe>
+
+  </main>
+
+  <!-- EINZIGER Einstiegspunkt -->
   <script type="module" src="/js/profile.js"></script>
 
 </body>
