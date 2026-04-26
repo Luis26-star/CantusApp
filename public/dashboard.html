@@ -1,7 +1,58 @@
-<div id="customDashboard">
-  <!-- 🔧 CUSTOM: hier eigenen HTML-Code einfügen -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="p-10">
+
+<h1 class="text-3xl font-bold mb-6">Vorstand – Dashboard</h1>
+
+<!-- 🔧 SEPA BUTTON -->
+<button id="sepaBtn" class="px-4 py-2 bg-blue-600 text-white rounded">
+  SEPA XML exportieren
+</button>
+
+<!-- 🔧 CUSTOM BEREICH -->
+<h2 class="text-xl font-semibold mt-8 mb-4">Projekte</h2>
+<div id="projects" class="space-y-2">
+  <!-- Projekte später -->
 </div>
 
-<div id="adminSection" class="hidden">
-  Vorstand Bereich
-</div>
+<!-- 🔥 MODULE SCRIPT -->
+<script type="module">
+
+import { generateSepaXML, downloadXML } from "/js/sepa-generator.js";
+
+// 👉 Button Logik
+document.getElementById("sepaBtn").onclick = () => {
+
+  // 🔧 Dummy Daten (später Supabase)
+  const mandateData = [
+    {
+      name: "Max Mustermann",
+      iban: "DE12345678901234567890",
+      bic: "GENODEF1XXX",
+      mandate_reference: "MANDAT-001",
+      signed_at: "2024-01-01T00:00:00"
+    }
+  ];
+
+  const xml = generateSepaXML(
+    mandateData,
+    "Mein Chor",
+    "DE99999999999999999999",
+    "GENODEF1XXX"
+  );
+
+  downloadXML(xml);
+};
+
+</script>
+
+<!-- 🔥 DEIN HAUPTSYSTEM -->
+<script type="module" src="/js/main.js"></script>
+
+</body>
+</html>
