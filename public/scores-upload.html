@@ -5,15 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Tailwind Config -->
+  <head>
+  <meta charset="UTF-8">
+
+  <!-- 1️⃣ Tailwind Config (ZUERST!) -->
   <script>
     tailwind.config = {
+      darkMode: 'media',
       theme: {
         extend: {
           colors: {
             cantus: {
+              light: "#E6F2FF",
               primary: "#1976D2",
-              success: "#388E3C",
-              danger: "#D32F2F"
+              dark: "#0D47A1",
+              accent: "#FFC107",
+              danger: "#D32F2F",
+              success: "#388E3C"
             }
           }
         }
@@ -21,9 +29,10 @@
     }
   </script>
 
+  <!-- 2️⃣ Tailwind Script (DAS ist Tailwind!) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <title>PDF Upload</title>
+</head>
 </head>
 
 <body class="p-6 bg-gray-50">
