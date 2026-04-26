@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind Config (IMMER vor Tailwind!) -->
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          colors: {
+            cantus: {
+              light: "#E6F2FF",
+              primary: "#1976D2",
+              dark: "#0D47A1",
+              accent: "#FFC107",
+              danger: "#D32F2F",
+              success: "#388E3C"
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <title>CantusApp</title>
+</head>
+
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+  <!-- NAV -->
+  <div id="nav"></div>
+
+  <!-- CONTENT -->
+  <main class="max-w-4xl mx-auto p-6">
+    <!-- 👉 HIER kommt dein Seiteninhalt rein -->
+  </main>
+
+  <!-- NAV + CORE LOGIK -->
+  <script type="module">
+    import { getRole } from "/js/roles.js";
+    import { logout } from "/js/auth.js";
+
+    async function initNav() {
+      const res = await fetch("/partials/nav.html");
+      document.getElementById("nav").innerHTML = await res.text();
+
+      // Logout Button
+      document.getElementById("logoutBtn")
+        ?.addEventListener("click", logout);
+
+      // Rolle anzeigen
+      const role = await getRole();
+      if (role) {
+        const el = document.getElementById("role");
+        if (el) {
+          el.textContent = role === "board" ? "Vorstand" : "Mitglied";
+        }
+      }
+    }
+
+    initNav();
+  </script>
+
+  <!-- PWA Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+  </script>
+
+</body>
+</html>
