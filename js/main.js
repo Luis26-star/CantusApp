@@ -16,7 +16,7 @@ async function init() {
 
   const role = await getRole();
 
-  console.log("User:", user.email);
+  console.log("User:", user?.email);
   console.log("Role:", role);
 
   // -------------------------
@@ -31,7 +31,6 @@ async function init() {
       document.getElementById("adminSection")?.classList.remove("hidden");
     }
 
-    // 🔧 CUSTOM HTML
     const custom = document.getElementById("customDashboard");
     if (custom) {
       custom.innerHTML += `<!-- eigener Code hier -->`;
@@ -49,7 +48,6 @@ async function init() {
       return;
     }
 
-    // 🔧 DUMMY EVENTS
     const dummyEvents = [
       { title: "Chorprobe", date: "10.05.2026" },
       { title: "Generalprobe", date: "15.05.2026" },
@@ -79,11 +77,10 @@ async function init() {
       });
     }
 
-    // 🔧 FORM
     const form = document.getElementById("eventForm");
 
     if (form) {
-      form.addEventListener("submit", (e) => {
+      form.onsubmit = (e) => {
         e.preventDefault();
 
         const title = document.getElementById("title").value;
@@ -97,7 +94,7 @@ async function init() {
         }
 
         alert(`Event gespeichert:\n${title} am ${date}`);
-      });
+      };
     }
   }
 
@@ -130,7 +127,6 @@ async function init() {
       sepa.innerHTML += `<!-- SEPA Inhalte -->`;
     }
   }
-
 }
 
 init();
