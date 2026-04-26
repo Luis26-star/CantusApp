@@ -7,9 +7,18 @@
   <script>
     tailwind.config = {
       darkMode: 'media',
-      theme: { extend: { colors: { cantus: {
-        primary:"#1976D2", success:"#388E3C", danger:"#D32F2F"
-      }}}}
+      theme: {
+        extend: {
+          colors: {
+            cantus: {
+              primary:"#1976D2",
+              accent:"#FFC107",
+              success:"#388E3C",
+              danger:"#D32F2F"
+            }
+          }
+        }
+      }
     }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,9 +30,29 @@
 
 <div id="nav"></div>
 
-<main class="max-w-4xl mx-auto p-6">
-  <h1 class="text-3xl font-bold mb-6">Proben</h1>
-  <div id="rehearsals"></div>
+<main class="max-w-5xl mx-auto p-6">
+
+  <h1 class="text-3xl font-bold mb-6">Proben-Kalender</h1>
+
+  <!-- Vorstand -->
+  <div id="admin-panel" class="hidden mb-6 bg-white p-4 rounded shadow">
+    <h2 class="font-bold mb-2">Neue Probe</h2>
+
+    <input id="title" placeholder="Titel"
+      class="border p-2 w-full mb-2">
+
+    <input id="date" type="date"
+      class="border p-2 w-full mb-2">
+
+    <button id="createBtn"
+      class="bg-cantus-primary text-white px-4 py-2 rounded">
+      Erstellen
+    </button>
+  </div>
+
+  <!-- Kalender Grid -->
+  <div id="calendar" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
 </main>
 
 <script type="module" src="/js/rehearsals.js"></script>
